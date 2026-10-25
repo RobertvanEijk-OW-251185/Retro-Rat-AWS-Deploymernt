@@ -1,0 +1,53 @@
+.reply-field {
+	display: flex;
+	width: 66.5rem;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.5rem;
+
+	margin-top: 1rem;
+	margin-left: 5rem;
+}
+
+.insert-reply {
+	display: flex;
+	/* width: 66.5rem; */
+	width: 100%;
+	padding: 0.625rem;
+	flex-direction: column;
+	align-items: flex-start;
+
+	color: rgba(0, 0, 0, 0.5);
+	font-family: Inter;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 500;
+	letter-spacing: -0.04056rem;
+
+	border-left: 2px solid #000;
+	background: #fff;
+}
+
+.post-reply-button {
+	display: flex;
+	padding: 0.5rem 2rem;
+	justify-content: center;
+	align-items: center;
+
+	margin-bottom: 1.5rem;
+
+	border: 4px solid #000;
+	background: #0b8c8c;
+	box-shadow: 4px 4px 0 0 #000;
+}
+
+.post-reply-btn-text {
+	color: #fff;
+	text-align: center;
+	font-family: Inter;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 700;
+	letter-spacing: -0.04056rem;
+	text-transform: uppercase;
+}

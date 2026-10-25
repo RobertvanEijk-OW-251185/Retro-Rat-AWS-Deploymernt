@@ -1,0 +1,57 @@
+/* App.css */
+/* App.css or index.css (Your global stylesheet) */
+
+body {
+  /* THIS APPLIES TO EVERY PAGE */
+  background-image: url('./assets/background.png'); /* Double check this path! */
+	background-repeat: repeat-y;
+	background-size: 100vw;
+  background-size: cover;
+  background-position: center top;
+
+  
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Forces the container to span the full height of the screen */
+}
+
+.main-content {
+  flex: 1; /* This is the spring that expands and pushes the footer down */
+  display: flex;
+  flex-direction: column;
+}
+
+/* custom cursor bc why not? */
+html, body, #root {
+
+/* cursor: url('your-custom-grab-icon.svg'), grab; */
+cursor: url('../src/assets/retroCursor.svg') 0 0, auto !important;
+}
+
+a,
+button,
+input[type="button"],
+input[type="submit"],
+input,
+select,
+textarea,
+[role="button"] {
+  cursor: url('../src/assets/retroCursor.svg') 0 0, auto !important;
+}
+
+.toast-fixed-wrapper {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999; 
+  pointer-events: none; 
+}
+
+.toast-fixed-wrapper > * {
+  pointer-events: auto; /* Re-enables clicking/dismissing the toast */
+}
+

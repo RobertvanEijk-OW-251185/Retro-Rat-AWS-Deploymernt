@@ -1,0 +1,118 @@
+.commentContainer {
+	display: flex;
+	/* max-width: 74.25rem; */
+	width: 100%;
+	height: auto;
+	padding: 0.9375rem 1.5rem;
+	flex-direction: column;
+	align-items: flex-start;
+
+	border-left: 4px solid #000;
+	background: #f0f8ff;
+}
+
+.commentAndReply {
+	display: flex;
+	/* width: 76.0625rem; */
+	/* width: 50rem; */
+	width: 100%;
+	height: auto;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.commentSelf {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.3125rem;
+	/* gap: 1rem; */
+
+	/* width: auto; */
+	width: 100%;
+}
+
+.commentAuthor {
+	display: flex;
+	width: 74.25;
+	height: 2.5rem;
+	align-items: flex-start;
+	gap: 0.9375rem;
+}
+
+.authorImage {
+	display: flex;
+	width: 2.5rem;
+	height: 2.5rem;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+
+	border: 2px solid #000;
+	background: #ffe500;
+}
+
+.commentInfo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1.75rem;
+}
+
+.authorName {
+	color: #000;
+	font-family: Inter;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 1.875rem; /* 150% */
+	letter-spacing: -0.04056rem;
+	text-transform: uppercase;
+}
+
+.commentDate {
+	color: #5b2c91;
+	font-family: Inter;
+	font-size: 0.9375rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.25rem; /* 133.333% */
+	letter-spacing: -0.02713rem;
+	text-transform: uppercase;
+}
+
+.replyBtn {
+	width: 1.5rem;
+	height: 1.05681rem;
+	aspect-ratio: 44/31;
+
+	background-color: transparent;
+
+	border: none;
+}
+
+.comment {
+	display: flex;
+	/* width: 74.25rem; */
+	width: 100%;
+	/* height: 1.875rem; */
+	justify-content: flex-end;
+	align-items: flex-start;
+	gap: 0.5rem;
+}
+
+.commentText {
+	/* width: 72.60131rem; */
+	width: 100%;
+	/* min-width: 68.375rem; */
+	flex-shrink: 0;
+
+	color: #000;
+	font-family: Inter;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.875rem; /* 150% */
+	letter-spacing: -0.04056rem;
+}

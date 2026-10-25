@@ -1,0 +1,36 @@
+.logoutBtn {
+	display: flex;
+	/* width: 6.25rem; */
+	padding: 0.625rem 1.25rem;
+	justify-content: center;
+	align-items: center;
+	/* align-self: stretch; */
+
+	border: 4px solid #000;
+	background: var(--RainbowMarch-Coral-Red, #ff4040);
+	box-shadow: 4px 4px 0 0 #000;
+
+	transition:
+		background 0.2s,
+		color 0.2s;
+
+	color: #fff;
+	text-align: center;
+	font-family: Inter;
+	/* font-size: 1.25rem; */
+	font-size: 0.9rem;
+	font-style: italic;
+	font-weight: 700;
+	letter-spacing: -0.04056rem;
+	text-transform: uppercase;
+}
+
+.logoutBtn:active {
+	border: 4px solid #000;
+	background: var(--RainbowMarch-Coral-Red, #ff1313);
+}
+
+.logoutBtn:hover {
+	border: 4px solid #000;
+	background: var(--RainbowMarch-Coral-Red, #821212);
+}

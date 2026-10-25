@@ -1,0 +1,214 @@
+.cart-main-content {
+	display: flex;
+	/* width: 81rem; */
+	width: 100%;
+
+	/* Temp height */
+	min-height: 100vh;
+
+	padding: 0 1.25rem 2.5rem 1.25rem;
+	flex-direction: column;
+	align-items: center;
+	gap: 2.5rem;
+
+	margin: auto;
+	margin-top: 2rem;
+}
+
+.cart-banner {
+	/* added for the shiney effect */
+	position: relative;
+    overflow: hidden;
+
+	display: flex;
+	width: 80%;
+	height: 8.687rem;
+	padding: 2.75rem 15.75rem 0.25rem 2.75rem;
+	flex-direction: column;
+	align-items: flex-start;
+	align-self: stretch;
+
+	margin-left: auto;
+	margin-right: auto;
+
+	border: 4px solid #000;
+	background: #5b2c91;
+	box-shadow: 8px 8px 0 0 #000;
+}
+
+.cart-banner-title {
+	/* Anchor system for stars */
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+
+	color: #f0f8ff;
+	font-family: Inter;
+	font-size: 1.875rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 2.5rem; /* 133.333% */
+	letter-spacing: -0.01275rem;
+	text-transform: uppercase;
+}
+
+.cart-banner-sub-title {
+	/* Anchor for  stars */
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+
+	color: #ffe500;
+	font-family: Inter;
+	font-size: 1.09375rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 1.5625rem; /* 142.857% */
+	letter-spacing: 0.00013rem;
+	text-transform: uppercase;
+}
+
+.content-container {
+	display: flex;
+	flex-direction: row;
+	/* justify-content: flex-end; */
+	/* align-items: flex-end; */
+	align-items: flex-start;
+	gap: 2.5rem;
+	width: 77%;
+	margin: 0 auto;
+
+	/* height: 584px; */
+
+	/* overflow-y: scroll; */
+}
+
+.cart-order-summary-wrapper {
+	position: sticky;
+	top: 2rem;
+}
+
+.cart-products-container {
+	display: flex;
+	padding: 1.25rem 0;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.25rem;
+
+	flex: 1;
+
+	/* This is for scrolling, will fix later lol */
+	/* height: 600px; */
+
+	/* overflow: hidden; */
+	/* overflow-y: scroll; */
+}
+
+/* TestCard1: */
+/* .testCard1 {
+	display: flex;
+	width: 51.5rem;
+	width: 100%;
+	height: 10.5rem;
+	padding: 1.5rem 1.5rem 0.25rem 1.5rem;
+	flex-direction: column;
+	align-items: flex-start;
+
+	border: 4px solid #000;
+	background: var(--neutrals-WHITE, #fff);
+	box-shadow: 4px 4px 0 0 #000;
+} */
+
+/* * ==========================================================================
+   ✨ SUPER COOL SWEEP SHINE & EXTRA TWISTY SPARKLES ✨
+  ========================================================================== */ 
+
+
+.cart-banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 80%;
+    height: 100%;
+
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 10%,
+        rgba(255, 255, 255, 0.3) 20%,
+        rgba(255, 255, 255, 0) 20.1%,
+        rgba(255, 255, 255, 0) 25%,
+        rgba(255, 255, 255, 0.8) 25.1%,
+        rgba(255, 255, 255, 0.8) 45%,
+        rgba(255, 255, 255, 0) 45.1%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.5) 50.1%,
+        rgba(255, 255, 255, 0.5) 60%,
+        rgba(255, 255, 255, 0) 60.1%
+    );
+
+    transform: skewX(-35deg);
+    pointer-events: none;
+    z-index: 2;
+
+    animation: banner-shine-load 1.2s ease-out 0.5s forwards;
+}
+
+.cart-banner:hover::after {
+    animation: banner-shine-hover 1.2s ease-out forwards;
+}
+
+/* i hate doing this */
+.cart-banner-title::before,
+.cart-banner-title::after,
+.cart-banner-sub-title::after {
+    content: "";
+    position: absolute;
+    background-color: #fff; 
+    clip-path: polygon(50% 0%, 55% 45%, 100% 50%, 55% 55%, 50% 100%, 45% 55%, 0% 50%, 45% 45%);
+    opacity: 0;
+    transform: scale(0) rotate(-90deg); /* Incorporates the deep spin start */
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Star  Top Left of "Your shopping cart" text*/
+.cart-banner-title::before {
+    left: -32px; 
+    top: -4px;
+    width: 22px;
+    height: 22px;
+    animation: sparkle-pop-load 0.8s ease-out 0.6s forwards; 
+}
+
+/* Star Bottom Right of "Your shopping cart" */
+.cart-banner-title::after {
+    right: -28px; 
+    bottom: 2px;
+    width: 18px;
+    height: 18px;
+    animation: sparkle-pop-load 0.8s ease-out 1.2s forwards; 
+}
+
+/* Star Right of Yellow Subtitle (Yellow Star) */
+.cart-banner-sub-title::after {
+    right: -30px; 
+    top: -1px;
+    width: 24px;
+    height: 24px;
+    background-color: #ffe500; 
+    animation: sparkle-pop-load 0.8s ease-out 1.3s forwards; 
+}
+
+/* ---  HOVER TRIGGERS FOR SPARKLES --- */
+.cart-banner:hover .cart-banner-title::before { 
+	animation: sparkle-pop-hover 0.8s ease-out 0.1s forwards; 
+}
+
+.cart-banner:hover .cart-banner-title::after { 
+	animation: sparkle-pop-hover 0.8s ease-out 0.7s forwards; 
+}
+.cart-banner:hover .cart-banner-sub-title::after { 
+	animation: sparkle-pop-hover 0.8s ease-out 0.8s forwards; 
+}

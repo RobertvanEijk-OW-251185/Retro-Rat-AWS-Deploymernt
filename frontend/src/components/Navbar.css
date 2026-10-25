@@ -1,0 +1,438 @@
+/* Ensure padding doesn't push elements wider than 100% */
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #001a83;
+    padding: 15px 40px;
+    align-items: center;
+    align-self: stretch;
+    width: 100%;
+
+    border-bottom: 2px;
+}
+
+.navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-family: "Inter";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -0.204px;
+    text-transform: uppercase;
+    color: #f0f8ff;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    text-decoration: none;
+}
+
+/* hide hamburger on desktop o7 */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: #f0f8ff;
+    font-size: 28px;
+}
+
+.navbar-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    margin-left: 40px;
+}
+
+#search-bar {
+    display: flex;
+    width: 100%;
+    max-width: 444px;
+    height: 41px;
+    padding: 7.5px 15px;
+    align-items: center;
+
+    border: 2px solid #f0f8ff;
+    background-color: #fff;
+}
+
+#search-bar input {
+    width: 100%;
+    font-family: "Inter";
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.649px;
+    border: none;
+    outline: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    color: var(--neutrals-AliceBlue, #f0f8ff);
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.5625rem; /* 178.571% */
+    letter-spacing: -0.03975rem;
+    text-transform: uppercase;
+}
+
+.nav-links a {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 40px;
+    align-items: center;
+    align-self: stretch;
+
+    text-align: end;
+    text-decoration: none;
+}
+
+.nav-link a.active {
+    color: #0b8c8c;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.5625rem; /* 178.571% */
+    letter-spacing: -0.03975rem;
+    text-transform: uppercase;
+}
+
+.nav-links .p-2 a {
+    text-transform: capitalize;
+    color: aliceblue;
+    font-family: "Inter";
+    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: -0.636px;
+}
+
+.nav-links .p-2 a:hover {
+    color: #0b8c8c;
+}
+
+/********** MEDIA QUERIES/MOBILE RESPONSIVE CSS **********/
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column; /* Stack vertically instead of side-by-side */
+        align-items: stretch;
+        padding: 15px 20px;
+    }
+
+    .navbar-top {
+        width: 100%;
+    }
+
+    .hamburger {
+        display: block; /* Show the button! */
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+        display: none; /* Hide the menu by default on mobile */
+        padding-top: 20px;
+    }
+
+    /* When the React state adds the "open" class, display the menu */
+    .navbar-menu.open {
+        display: flex;
+        gap: 20px;
+    }
+
+    #search-bar {
+        max-width: 100%; /* Make search bar full width on mobile */
+        margin-right: 0;
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack links vertically */
+        width: 100%;
+        gap: 15px;
+    }
+
+    .nav-links a {
+        display: block;
+        text-align: center; /* Center the text for a nice touch friendly target */
+        width: 100%;
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Optional divider lines */
+    }
+}
+
+.custom-navbar {
+    background-color: #001a83;
+    width: 100%;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #f0f8ff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.hamburger {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
+    margin-left: 30px;
+}
+
+#search-bar {
+    background: white;
+    padding: 5px 15px;
+    border: 2px solid #f0f8ff;
+    width: 100%;
+    max-width: 350px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #0b8c8c;
+}
+
+.nav-links a.active {
+    color: #0b8c8c;
+    font-weight: 900;
+}
+
+/* MOBILE RESPONSIVEVIEW */
+@media (max-width: 992px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none; /* Hide by default */
+        flex-direction: column;
+        margin-left: 0;
+        padding: 20px 0;
+        gap: 20px;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    #search-bar {
+        max-width: 100%;
+    }
+}
+
+/* ==================================================
+   BEHOLD: THE SEARCH DROPDOWN MONSTER 
+   Appended strictly at the bottom so Git stays happy.
+================================================== */
+
+.search-container {
+    /* CRITICAL: We trap the absolute dropdown in here so it doesn't escape to the top of the body */
+    position: relative; 
+    width: 100%;
+    max-width: 444px; /* Matches the search bar width so it doesn't look like a tumor */
+}
+
+.search-dropdown {
+    /* Absolute positioning because we live on the edge and want to float over everything */
+    position: absolute;
+    top: calc(100% + 5px); /* Sits right beneath the input. The 5px is breathing room. */
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border: 4px solid #000000; /* THICK RETRO BORDER */
+    z-index: 2000; /* Z-INDEX MASSIVE to assert dominance over whatever carousel is below it */
+    max-height: 400px;
+    overflow-y: auto; /* If they have 50 items, we scroll. We do not break the page. */
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 1); /* Hard shadow for that crisp 90s aesthetic */
+}
+
+/* The actual link block for each search result */
+.search-result-item {
+    display: flex;
+    flex-direction: row;
+    padding: 12px;
+    border-bottom: 4px solid #000000;
+    text-decoration: none;
+    color: #000000;
+    background-color: #ffffff;
+    transition: background-color 0.2s ease;
+    align-items: center;
+}
+
+/* Nuke the bottom border on the last item so it doesn't double stack with the container border */
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+/* Hover state because we aren't savages */
+.search-result-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* The little thumbnail image box */
+.search-result-img {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0; /* DO NOT SQUISH MY IMAGE */
+    border: 2px solid #000000;
+    background-color: lightgray;
+}
+
+.search-result-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crop it nicely if the aspect ratio is weird */
+}
+
+/* The middle section holding the text block */
+.search-result-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 16px;
+    flex-grow: 1; /* Eat up all remaining space */
+    min-width: 0; /* Prevents long titles from blowing out the flexbox width */
+}
+
+.search-title {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    /* Truncation magic for absurdly long product names */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-user {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #5b2c91; /* Hardcoded the Retro Rat purple */
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+/* Container for the little pill badges */
+.search-badges {
+    display: flex;
+    gap: 8px;
+}
+
+.search-badge {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 8px;
+    border: 2px solid #000000;
+    text-transform: uppercase;
+}
+
+.condition-badge {
+    background-color: #42823E; 
+    color: #ffffff;
+}
+
+.year-badge {
+    background-color: #ffe500; 
+    color: #000000;
+}
+
+/* The cash money section */
+.search-result-price {
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    white-space: nowrap; /* Do not wrap my currency symbol */
+    padding-left: 10px;
+}
+
+/* Fallback for when the search query yields nothing */
+.search-no-results {
+    padding: 20px;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    color: #555555;
+    font-style: italic;
+}

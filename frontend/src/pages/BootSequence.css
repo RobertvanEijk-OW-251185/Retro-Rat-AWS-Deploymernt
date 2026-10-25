@@ -1,0 +1,189 @@
+.boot-bars {
+  font-family: "Sixtyfour", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0;
+  font-size: 32px;
+  color: #00E040;
+  letter-spacing: 4.16px;
+  text-align: center;
+  text-shadow: 0 -3px 113.3px #00E040;
+  padding-bottom: 15px;
+  line-height: 1;
+}
+
+.boot-title {
+  font-family: "Sixtyfour", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0;
+  font-size: 32px;
+  color: #00E040;
+  letter-spacing: 4.16px;
+  text-align: center;
+  text-shadow: 0 -3px 113.3px #00E040;
+  margin: 0;
+  line-height: 1;
+}
+
+.boot {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #00df3f;
+  padding: 25px 0;
+}
+
+.boot-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.boot-bars p {
+  margin: 0;
+  margin-bottom: -15px;
+}
+
+.boot-header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.boot-logo-row {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.boot-rat-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  width: 201.5px;
+  height: 201.5px;
+}
+
+.boot-rat {
+  width: 151.5px;
+  height: 151.5px;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.boot-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.boot-version {
+  margin: 0;
+  font-family: 'VT323', monospace;
+  font-size: 32px;
+  color: #00e040;
+  letter-spacing: 12.8px;
+  text-shadow: 0 -3px 113.3px #00e040;
+  text-align: center;
+}
+
+.boot-tagline {
+  margin: 0;
+  font-family: 'Bitcount Prop Double', monospace;
+  font-weight: 500;
+  font-size: 24px;
+  color: #00df3f;
+  letter-spacing: 6px;
+  text-align: center;
+}
+
+.boot-sequence {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  max-width: 1440px;
+  padding: 25px 54px 0;
+  box-sizing: border-box;
+  font-family: 'Bitcount Prop Double', monospace;
+  font-size: 32px;
+  color: #00df3f;
+}
+
+.boot-init {
+  margin: 0;
+  font-weight: 400;
+}
+
+.boot-log {
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+}
+
+.boot-log p {
+  margin: 0;
+}
+
+.boot-ok {
+  font-weight: 400;
+}
+
+.boot-auth-start {
+  padding: 10px;
+}
+
+.boot-auth-start p {
+  margin: 0;
+  font-weight: 400;
+}
+
+/* LOGIN AND REGISTER STUFFS */
+.boot-select {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  max-width: 1440px;
+  padding: 25px 54px;
+  box-sizing: border-box;
+  font-family: 'Bitcount Prop Double', monospace;
+  font-size: 32px;
+  color: #00df3f;
+}
+
+.boot-select-label {
+  margin: 0;
+  letter-spacing: 4px;
+}
+
+.boot-select-options {
+  display: flex;
+  gap: 90px;
+  align-items: flex-start;
+}
+
+.boot-option {
+  color: #00df3f;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boot-option:hover {
+  color: #fff;
+}

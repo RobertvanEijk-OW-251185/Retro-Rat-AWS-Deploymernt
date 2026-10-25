@@ -1,0 +1,119 @@
+/* Comment Section Component Styling */
+
+.commentSection {
+	display: flex;
+	padding: 2.125rem;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.9375rem;
+	align-self: stretch;
+
+	border: 4px solid #000;
+	background: var(--brandColors-Gold, #d99e30);
+	box-shadow: 8px 8px 0 0 #000;
+}
+
+/* Post Comment Button (Temp until buttons are finished) */
+
+/* Comment Component Styling */
+
+/* Comment Reply Component Styling */
+
+.comment-reply {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	/* align-self: stretch; */
+	align-self: flex-end;
+
+	/* margin-left: 5rem; */
+
+	width: auto;
+	/* width: 75%; */
+	width: 95%;
+	height: auto;
+
+	padding: 0.625rem;
+	gap: 0.9375rem;
+
+	flex-shrink: 0;
+
+	background: #fff;
+	border-left: 2px solid #000;
+}
+
+.user-icon {
+	display: flex;
+	width: 1.875rem;
+	height: 1.875rem;
+	justify-content: center;
+	align-items: center;
+
+	border: 2px solid #000;
+	background: #ffe500;
+}
+
+.users-icon {
+	color: #fff;
+	font-family: Inter;
+	font-size: 0.9375rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 1.25rem; /* 133.333% */
+	letter-spacing: -0.02713rem;
+}
+
+.reply-content {
+	display: flex;
+	width: 100%;
+	height: 4.0625rem;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.3125rem;
+}
+
+.reply-head {
+	display: flex;
+	flex-direction: row;
+	/* padding-right: 39.64894rem; */
+	align-items: center;
+	gap: 0.625rem;
+	/* align-self: stretch; */
+	width: 100%;
+}
+
+.reply-person-name {
+	color: #000;
+	font-family: Inter;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 700;
+	letter-spacing: -0.04056rem;
+	text-transform: uppercase;
+}
+
+.reply-time {
+	color: #5b2c91;
+	font-family: Inter;
+	font-size: 0.9375rem;
+	font-style: normal;
+	font-weight: 500;
+	letter-spacing: -0.02713rem;
+	text-transform: uppercase;
+}
+
+.reply-self {
+	display: flex;
+	/* padding-right: 42.875rem; */
+	align-items: center;
+	/* align-self: stretch; */
+	width: 100%;
+
+	color: #000;
+	font-family: Inter;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.875rem; /* 150% */
+	letter-spacing: -0.04056rem;
+}

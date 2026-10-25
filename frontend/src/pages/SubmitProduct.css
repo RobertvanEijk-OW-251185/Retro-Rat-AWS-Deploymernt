@@ -1,0 +1,566 @@
+/* 
+  ==========================================================================
+   ___ ___ ___ ___ _____ 
+  | _ \ __/ __| __|_   _|
+  |   / _|\__ \ _|  | |  
+  |_|_\___|___/___| |_|  
+  
+ WRAPPER RESET (DO NOT TOUCH OR THE WHOLE PAGE DIES)
+  ========================================================================== 
+*/
+.submit-page-wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* 
+  ==========================================================================
+   _  _ ___ _    ___ 
+  | || | __| |  | _ \
+  | __ | _|| |__|  _/
+  |_||_|___|____|_|  
+  
+BANNER OF JUDGMENT (WHY IS ADMIN WATCHING ME HELP)
+  ========================================================================== 
+*/
+.admin-verification-banner {
+	width: 100%;
+	background-color: #d99e30;
+	border-bottom: 4px solid #000;
+	padding: 16px 40px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.admin-verification-banner .warning-icon {
+	font-size: 24px;
+
+	color: aliceblue;
+}
+
+.admin-verification-banner p {
+	margin: 0;
+	color: #fff;
+	font-family: "Inter", sans-serif;
+	font-size: 14px;
+	line-height: 1.4;
+	text-transform: none;
+}
+
+/* 
+  ==========================================================================
+   _  _ ___   _   ___  ___ ___ 
+  | || | __| /_\ |   \| __| _ \
+  | __ | _| / _ \| |) | _||   /
+  |_||_|___/_/ \_\___/|___|_|_\
+  
+HEADER (TITLES, TEARS, AND  SUBTEXT)
+  ========================================================================== 
+*/
+.submit-product-container {
+	display: flex;
+	flex-direction: column;
+	padding: 60px 20px;
+	gap: 48px;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.submit-product-header {
+	position: relative;
+	overflow: hidden;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+	padding: 32px 24px;
+	border: 4px solid #000;
+	background-color: #5b2c91;
+	box-shadow: 8px 8px 0 0 #000;
+}
+
+.submit-product-header h1 {
+	margin: 0;
+	color: #f0f8ff;
+	font-family: "Inter", sans-serif;
+	font-size: 42px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+}
+
+.submit-product-header p {
+	margin: 8px 0 0 0;
+	color: #ffe500;
+	font-family: "Inter", sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.submit-product-form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 40px;
+}
+
+/* 
+  ==========================================================================
+   ___   _   ___  ___  ___ 
+  / __| /_\ | _ \     / __|
+ | (__ / _ \|   / |---| (__ 
+  \___/_/ \_\_|_\|     \___|
+  
+IF SPAGHETTI RECYCLING WAS AN ART FORM
+  ========================================================================== 
+*/
+.form-section-card {
+	border: 4px solid #000;
+	box-shadow: 8px 8px 0 0 #000;
+	padding: 0 !important;
+	width: 100%;
+}
+
+.section-inner-padding {
+	padding: 32px;
+	width: 100%;
+}
+
+.section-main-label {
+	display: block;
+	color: #fff;
+	font-family: "Inter", sans-serif;
+	font-size: 24px;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-bottom: 24px;
+}
+
+/* THE MESSY COLOR PALETTE TRAP */
+.photo-card-bg {
+	background-color: #d99e30;
+}
+.classification-card-bg {
+	background-color: #00795d;
+}
+.info-card-bg {
+	background-color: #b30000;
+}
+.shipping-card-bg {
+	background-color: #0f5ad1;
+}
+
+/* GLOBAL INPUT OVERHAUL (DO NOT MAKE THEM TINY COWARDS) */
+.submit-product-form input[type="text"],
+.submit-product-form input[type="number"],
+.submit-product-form select,
+.submit-product-form textarea {
+	width: 100%;
+	padding: 16px;
+	border: 2px solid #000;
+	background-color: #f0f8ff;
+	color: #000;
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	outline: none;
+}
+
+.submit-product-form textarea {
+	resize: vertical;
+}
+
+.input-group-block {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	width: 100%;
+}
+
+.field-label {
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #f0f8ff;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.label-inline-icon {
+	width: 20px;
+	height: 20px;
+}
+
+/* 
+  ==========================================================================
+  ___ _  _  ___ _____ ___  
+ | _ \ || |/ _ \_   _/ _ \ 
+ |  _/ __ | (_) || || (_) |
+ |_| |_||_|\___/ |_| \___/ 
+                           
+   THE PHOTO UPLOAD ABYSS (PRAY IT ACCEPTS THE JPEG FILE)
+  ========================================================================== 
+*/
+.photo-instructions-box {
+	width: 100%;
+	padding: 48px 24px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 4px dashed #000;
+	background-color: #f0f8ff;
+	text-align: center;
+}
+
+.upload-icon-graphic {
+	width: 50px;
+	height: 50px;
+	margin-bottom: 16px;
+}
+
+.upload-text-main {
+	color: #000;
+	font-family: "Inter", sans-serif;
+	font-weight: 700;
+	font-size: 18px;
+	margin: 0;
+}
+
+.upload-text-divider {
+	color: #5b2c91;
+	font-family: "Inter", sans-serif;
+	font-weight: 700;
+	margin: 8px 0;
+	text-transform: uppercase;
+}
+
+.browse-files-btn {
+	padding: 12px 34px;
+	border: 2px solid #000;
+	background-color: #0b8c8c;
+	color: #fff;
+	font-family: "Inter", sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	box-shadow: 3px 3px 0 #000;
+	cursor: pointer;
+}
+
+.browse-files-btn:active {
+	transform: translate(1px, 1px);
+	box-shadow: 2px 2px 0 #000;
+}
+
+.upload-text-sub {
+	color: #5b2c91;
+	font-family: "Inter", sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	margin: 16px 0 0 0;
+	text-transform: uppercase;
+}
+
+/* 
+  ==========================================================================
+   ___ ___ ___    _   ___ ___ 
+  | __| _ \   \  /_\ | _ \   \
+  | _||   / |) |/ _ \|   / |) |
+  |_| |_|_\___//_/ \_\_|__\___/
+  
+ITEM CLASSIFICATION (THE GRID BLOCK THAT I FINALLY ALIGNED)
+  ========================================================================== 
+*/
+.product-details-form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+/* 
+  ==========================================================================
+  |_ _|  _  _ ___ ___  
+   | |  | \| | __/ _ \ 
+  |___| |_|\_|_| \___/ 
+                       
+ITEM INFO & TEXTAREA HELL (I FIXED THE TEXTAREA TYPO LETS GOOO)
+  ========================================================================== 
+*/
+.form-tip-text {
+	margin: 8px 0 0 0;
+	color: #ffe500;
+	font-family: "Inter", sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+}
+
+.province-dropdown {
+	width: 100%;
+	padding: 10px 15px;
+	background-color: #ffffff;
+	color: #000000;
+	border: 2px solid #e0e0e0;
+	border-radius: 4px;
+	font-size: 1rem;
+
+	cursor: pointer;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	transition:
+		background-color 0.2s ease,
+		color 0.2s ease,
+		border-color 0.2s ease;
+}
+
+.province-dropdown:hover,
+.province-dropdown:focus {
+	outline: none;
+	background-color: #0b8c8c;
+	border-color: #0b8c8c;
+	color: #ffffff;
+}
+
+.province-dropdown option {
+	background-color: #ffffff;
+	color: #000000;
+}
+
+/* 
+  ==========================================================================
+   ___ _  _ ___ ___ 
+  / __| || |_ _| _ \
+  \__ \ __ || ||  _/
+  |___/_||_|___|_|  
+  
+CHECKBOXES SHIPPING &  AGREEMENTS
+  ========================================================================== 
+*/
+.shipping-options-list {
+	list-style: none;
+	padding: 24px;
+	margin: 0 0 20px 0;
+	background-color: #f0f8ff;
+	border: 2px solid #000;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.shipping-options-list li {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.shipping-options-list input[type="checkbox"],
+.terms-checkbox-strip input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+	accent-color: #0b8c8c;
+	cursor: pointer;
+}
+
+.shipping-options-list label {
+	color: #000;
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.terms-checkbox-strip {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+}
+
+.terms-label {
+	color: #f0f8ff;
+	font-family: "Inter", sans-serif;
+	font-size: 15px;
+	font-weight: 500;
+	line-height: 1.4;
+	cursor: pointer;
+}
+
+.yellow-highlight {
+	color: #ffe500;
+	font-weight: 800;
+}
+
+/* 
+  ==========================================================================
+  ___  _   _ _____ _____ ___  _  _ ___ 
+ | _ )| | | |_   _|_   _/ _ \| \| / __|
+ | _ \| |_| | | |   | || (_) | .` \__ \
+ |___/ \___/  |_|   |_| \___/|_|\_|___/
+                                       
+  ========================================================================== 
+*/
+
+.submit-action-row {
+	display: flex;
+	width: 100%;
+	gap: 24px;
+	margin-top: 16px;
+}
+
+.action-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 16px 40px;
+	font-family: "Inter", sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+	text-transform: uppercase;
+	border: 4px solid #000;
+	box-shadow: 6px 6px 0 #000;
+	cursor: pointer;
+	transition: transform 0.05s ease;
+}
+
+.action-btn:active {
+	transform: translate(3px, 3px);
+	box-shadow: 3px 3px 0 #000;
+}
+
+.cancel-btn {
+	background-color: #fff;
+	color: #000;
+	min-width: 160px; /* Gives cancel a solid, reliable footprint */
+	text-align: center;
+}
+
+/* This is the magic line that makes it stretch exactly like your screenshot */
+.process-btn {
+	background-color: #0b8c8c;
+	color: #fff;
+	flex-grow: 1;
+	text-align: center;
+}
+
+.error-display-msg {
+	color: #ff3b30;
+	font-weight: 700;
+	text-align: center;
+	font-family: "Inter", sans-serif;
+	margin: 0;
+}
+
+/* ==========================================================================
+   ✨ I CONNT REMBER HOW I DID THE OTHER TITLES BUT THIS IS THE BANNER SPARKLY ANIMATION THING ✨
+  ========================================================================== */
+
+.submit-product-header::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -200%;
+	width: 80%;
+	height: 100%;
+
+	background: linear-gradient(
+		to right,
+		rgba(255, 255, 255, 0) 0%,
+		rgba(255, 255, 255, 0.3) 10%,
+		rgba(255, 255, 255, 0.3) 20%,
+		rgba(255, 255, 255, 0) 20.1%,
+		rgba(255, 255, 255, 0) 25%,
+		rgba(255, 255, 255, 0.8) 25.1%,
+		rgba(255, 255, 255, 0.8) 45%,
+		rgba(255, 255, 255, 0) 45.1%,
+		rgba(255, 255, 255, 0) 50%,
+		rgba(255, 255, 255, 0.5) 50.1%,
+		rgba(255, 255, 255, 0.5) 60%,
+		rgba(255, 255, 255, 0) 60.1%
+	);
+
+	transform: skewX(-35deg);
+	pointer-events: none;
+	z-index: 2;
+
+	animation: banner-shine-load 1.2s ease-out 0.5s forwards;
+}
+
+.submit-product-header:hover::after {
+	animation: banner-shine-hover 1.2s ease-out forwards;
+}
+
+.submit-product-header h1,
+.submit-product-header p {
+	position: relative;
+	width: fit-content;
+}
+
+.submit-product-header h1::before,
+.submit-product-header h1::after,
+.submit-product-header p::after {
+	content: "";
+	position: absolute;
+	background-color: #fff;
+	clip-path: polygon(
+		50% 0%,
+		55% 45%,
+		100% 50%,
+		55% 55%,
+		50% 100%,
+		45% 55%,
+		0% 50%,
+		45% 45%
+	);
+	opacity: 0;
+	transform: scale(0) rotate(-90deg); /* Starts with the deep twist */
+	pointer-events: none;
+	z-index: 3;
+}
+
+/* Star Top Left of Title*/
+.submit-product-header h1::before {
+	left: -35px;
+	top: -10px;
+	width: 24px;
+	height: 24px;
+	animation: sparkle-pop-load 0.8s ease-out 0.6s forwards;
+}
+
+/* Star Bottom Right of Title */
+.submit-product-header h1::after {
+	right: -30px;
+	bottom: -5px;
+	width: 20px;
+	height: 20px;
+	animation: sparkle-pop-load 0.8s ease-out 1.2s forwards;
+}
+
+/* Star Right of Yellow Subtitle */
+.submit-product-header p::after {
+	right: -32px;
+	top: -5px;
+	width: 26px;
+	height: 26px;
+	background-color: #ffe500;
+	animation: sparkle-pop-load 0.8s ease-out 1.3s forwards;
+}
+
+/* --- HOVER TRIGGERS FOR SPARKLES --- */
+.submit-product-header:hover h1::before {
+	animation: sparkle-pop-hover 0.8s ease-out 0.1s forwards;
+}
+.submit-product-header:hover h1::after {
+	animation: sparkle-pop-hover 0.8s ease-out 0.7s forwards;
+}
+.submit-product-header:hover p::after {
+	animation: sparkle-pop-hover 0.8s ease-out 0.8s forwards;
+}

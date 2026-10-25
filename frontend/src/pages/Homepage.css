@@ -1,0 +1,571 @@
+.home-container {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.home-content {
+  display: flex;
+  width: 100%;
+  padding: 40px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+}
+
+/* grid container wrapper thingy so the grid structure stays */
+.section-inner-wrapper {
+  width: 100%;
+  max-width: 1256px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* === HERO SECTION === */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+
+  max-width: 1256px;
+  height: 637px;
+  padding: 0 !important;
+  background: url('../assets/heroImg.png') lightgray 50% / cover no-repeat;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0 0 #000;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -200%;
+  width: 80%;
+  height: 100%;
+
+  /* background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 10%,
+      rgba(255, 255, 255, 0.3) 20%,
+      rgba(255, 255, 255, 0) 20.1%,
+      rgba(255, 255, 255, 0) 25%,
+      rgba(255, 255, 255, 0.8) 25.1%,
+      rgba(255, 255, 255, 0.8) 45%,
+      rgba(255, 255, 255, 0) 45.1%,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 255, 255, 0.5) 50.1%,
+      rgba(255, 255, 255, 0.5) 60%,
+      rgba(255, 255, 255, 0) 60.1%
+  ); */
+
+  /* softer glowing lines */
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    
+
+    rgba(255, 255, 255, 0) 5%,
+    rgba(255, 255, 255, 0.2) 12%,
+    rgba(255, 255, 255, 0.2) 18%,
+    rgba(255, 255, 255, 0) 22%,
+    
+
+    rgba(255, 255, 255, 0) 23%,
+    rgba(255, 255, 255, 0.6) 32%,
+    rgba(255, 255, 255, 0.6) 40%,
+    rgba(255, 255, 255, 0) 48%,
+
+    rgba(255, 255, 255, 0) 49%,
+    rgba(255, 255, 255, 0.3) 53%,
+    rgba(255, 255, 255, 0.3) 58%,
+    rgba(255, 255, 255, 0) 65%,
+    
+    rgba(255, 255, 255, 0) 100%
+);
+
+  transform: skewX(-35deg);
+  pointer-events: none; 
+  z-index: 2;
+
+
+  animation: banner-shine-load 1.2s ease-out 0.5s forwards;
+}
+
+
+.hero-section:hover::after {
+  animation: banner-shine-hover 1.2s ease-out forwards;
+}
+
+.hero-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  background: linear-gradient(101deg, #000 0.21%, rgba(0, 0, 0, 0) 99.79%);
+}
+
+.hero-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-image {
+  width: 340px;
+  height: 340px;
+}
+
+.hero-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.hero-text h1 {
+  color: #f0f8ff;
+  font-family: 'Inter', sans-serif;
+  font-size: 2.344rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.hero-text p {
+  color: #ffe500;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.browse-button {
+  padding: 19px 48px;
+  background-color: #d99e30;
+  border-radius: 4px;
+  border: 4px solid #000000;
+  box-shadow: 4px 4px 0 0 #000;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.browse-button:hover{
+  background-color: #5b2c91;
+  transition: all 0.2s ease-in-out; 
+}
+
+/* === POPULAR SECTION === */
+.popular-section {
+  background: rgba(91, 44, 145, 0.9); 
+  padding: 48px 20px !important;
+  width: 100vw;
+}
+
+.popular-banner {
+  display: flex;
+  padding: 44px;
+  border: 4px solid #000;
+  background: #0b8c8c;
+  box-shadow: 8px 8px 0 0 #000;
+}
+
+.popular-text h2 {
+  color: #f0f8ff;
+  font-family: 'Inter', sans-serif;
+  font-size: 37.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.popular-text p {
+  color: #ffe500;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 5px 0 0 0;
+}
+
+.popular-items {
+  margin-top: 20px;
+}
+
+.view-listed-btn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.view-listed-btn button {
+  width: 398.66px;
+  padding: 12px 21px;
+  border: 2px solid #000;
+  background: #fff;
+  box-shadow: 8px 8px 0 0 #000;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out; 
+}
+
+.view-listed-btn button:hover{
+  background-color: #0b8c8c;
+  color: #FFF;
+}
+
+/* === JOIN SECTION === */
+.join-section {
+  padding: 0 !important;
+}
+
+.join-banner {
+  display: flex;
+  padding: 44px;
+  border: 4px solid #000;
+  background: #d99e30;
+  box-shadow: 8px 8px 0 0 #000;
+}
+
+.join-text-banner h2 {
+  color: #f0f8ff;
+  font-family: 'Inter', sans-serif;
+  font-size: 37.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.join-text-banner p {
+  color: #5b2c91;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 5px 0 0 0;
+}
+
+.join-hero {
+  height: 450px;
+  border: 4px solid #000;
+  background: url('../assets/joinHeroImg.jpg') lightgray 50% / cover no-repeat;
+  box-shadow: 8px 8px 0 0 #000;
+  overflow: hidden;
+}
+
+.join-content {
+  display: flex;
+  padding: 40px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  background: linear-gradient(0deg, #000 15.78%, rgba(0, 0, 0, 0) 100%),
+              linear-gradient(131deg, rgba(0, 255, 161, 0.3) 15.41%, rgba(238, 0, 255, 0.3) 84.59%);
+}
+
+.join-text h2 {
+  color: #f0f8ff;
+  font-family: 'Inter', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.join-text p {
+  color: #ffe500;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.join-btn-container {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+}
+
+.join-btn-container button {
+  flex: 1;
+  height: 54px;
+  border: 2px solid #000;
+  background: #fff;
+  box-shadow: 8px 8px 0 0 #000;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out; 
+}
+
+.join-btn-container button:hover{
+  background-color: #d99e30;
+  color: #FFF;
+}
+
+/* === ALREADY A MEMBER SECTION === */
+.already-a-member-section {
+  background: #0b8c8c; 
+  padding: 48px 20px !important;
+  width: 100vw;
+}
+
+.already-banner {
+  display: flex;
+  padding: 44px;
+  border: 4px solid #000;
+  background: #d9411e;
+  box-shadow: 8px 8px 0 0 #000;
+}
+
+.already-text h2 {
+  color: #f0f8ff;
+  font-family: "Inter", sans-serif;
+  font-size: 37.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.already-text p {
+  color: #ffe500;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 5px 0 0 0;
+}
+
+.already-col {
+  display: flex;
+  height: 400px;
+  padding: 40px;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0 0 #000;
+}
+
+.add-your-listing {
+  background: linear-gradient(0deg, #000 15.78%, rgba(0, 0, 0, 0) 100%),
+              url('../assets/add-your-listingImg.jpg') lightgray 50% / cover no-repeat;
+}
+
+.view-product-approval-status {
+  background: linear-gradient(0deg, #000 15.78%, rgba(0, 0, 0, 0) 100%), 
+              url('../assets/approval-statusImg.jpg') lightgray 50% / cover no-repeat;
+}
+
+.already-col .title-text h2 {
+  color: #f0f8ff;
+  font-family: 'Inter', sans-serif;
+  font-size: 22.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.already-col .title-text p {
+  color: #ffe500;
+  font-family: 'Inter', sans-serif;
+  font-size: 17.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+
+.already-action-btn {
+  width: 100%; 
+  height: 54px;
+  border: 2px solid #000;
+  background: #FFF;
+  box-shadow: 8px 8px 0 0 #000;
+  color: #000;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out; 
+}
+
+.already-action-btn:hover{
+  background-color: #d9411e;
+  color: #FFF;
+}
+/* ==========================================================================
+   ✨ SET UP FOR HOMEPAGE BANNERS✨
+  ========================================================================== */
+
+.popular-banner, 
+.join-banner, 
+.already-banner {
+  position: relative; 
+  overflow: hidden;   
+}
+
+.popular-text h2, .popular-text p,
+.join-text-banner h2, .join-text-banner p,
+.already-text h2, .already-text p {
+  position: relative;
+  width: fit-content;
+}
+
+.popular-banner::after,
+.join-banner::after,
+.already-banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 80%;
+    height: 100%;
+
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 10%,
+        rgba(255, 255, 255, 0.3) 20%,
+        rgba(255, 255, 255, 0) 20.1%,
+        rgba(255, 255, 255, 0) 25%,
+        rgba(255, 255, 255, 0.8) 25.1%,
+        rgba(255, 255, 255, 0.8) 45%,
+        rgba(255, 255, 255, 0) 45.1%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.5) 50.1%,
+        rgba(255, 255, 255, 0.5) 60%,
+        rgba(255, 255, 255, 0) 60.1%
+    );
+
+    transform: skewX(-35deg);
+    pointer-events: none;
+    z-index: 2;
+
+    animation: banner-shine-load 1.2s ease-out 0.5s forwards;
+}
+
+.popular-banner:hover::after,
+.join-banner:hover::after,
+.already-banner:hover::after {
+    animation: banner-shine-hover 1.2s ease-out forwards;
+}
+
+.popular-text h2::before, .popular-text h2::after, .popular-text p::after,
+.join-text-banner h2::before, .join-text-banner h2::after, .join-text-banner p::after,
+.already-text h2::before, .already-text h2::after, .already-text p::after {
+    content: "";
+    position: absolute;
+    background-color: #fff; 
+    clip-path: polygon(50% 0%, 55% 45%, 100% 50%, 55% 55%, 50% 100%, 45% 55%, 0% 50%, 45% 45%);
+    opacity: 0;
+    transform: scale(0) rotate(-90deg);
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* ---  STAR COORDINATES --- */
+
+/* Star 1 Top Left of Titles */
+.popular-text h2::before,
+.join-text-banner h2::before,
+.already-text h2::before {
+    left: -32px; 
+    top: -4px;
+    width: 22px;
+    height: 22px;
+    animation: sparkle-pop-load 0.8s ease-out 0.6s forwards; 
+}
+
+/* Star 2 Bottom Right */
+.popular-text h2::after,
+.join-text-banner h2::after,
+.already-text h2::after {
+    right: -28px; 
+    bottom: 2px;
+    width: 18px;
+    height: 18px;
+    animation: sparkle-pop-load 0.8s ease-out 1.2s forwards; 
+}
+
+/* Star 3 Right of Subtitles */
+.popular-text p::after,
+.join-text-banner p::after,
+.already-text p::after {
+    right: -30px; 
+    top: -1px;
+    width: 22px;
+    height: 22px;
+    animation: sparkle-pop-load 0.8s ease-out 1.3s forwards; 
+}
+
+.popular-text p::after{ 
+  background-color: #ffe500; 
+} 
+
+.join-text-banner p::after{ 
+  background-color: #5b2c91; 
+}
+
+.already-text p::after{ 
+  background-color: #ffe500; 
+} 
+
+/* Popular Tech Banner */
+.popular-banner:hover .popular-text h2::before { 
+  animation: sparkle-pop-hover 0.8s ease-out 0.1s forwards; 
+}
+
+.popular-banner:hover .popular-text h2::after  { 
+  animation: sparkle-pop-hover 0.8s ease-out 0.7s forwards; 
+}
+
+.popular-banner:hover .popular-text p::after   { 
+  animation: sparkle-pop-hover 0.8s ease-out 0.8s forwards; 
+}
+
+/* Become a Vendor Banner */
+.join-banner:hover .join-text-banner h2::before { 
+  animation: sparkle-pop-hover 0.8s ease-out 0.1s forwards; 
+}
+
+.join-banner:hover .join-text-banner h2::after  { 
+  animation: sparkle-pop-hover 0.8s ease-out 0.7s forwards; 
+}
+
+.join-banner:hover .join-text-banner p::after   { 
+  animation: sparkle-pop-hover 0.8s ease-out 0.8s forwards; 
+}
+
+/* Already a Member Banner */
+.already-banner:hover .already-text h2::before { 
+  animation: sparkle-pop-hover 0.8s ease-out 0.1s forwards; 
+}
+
+.already-banner:hover .already-text h2::after  { 
+  animation: sparkle-pop-hover 0.8s ease-out 0.7s forwards; 
+}
+
+.already-banner:hover .already-text p::after   { 
+  animation: sparkle-pop-hover 0.8s ease-out 0.8s forwards; 
+}
