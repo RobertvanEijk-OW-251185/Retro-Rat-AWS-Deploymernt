@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../pages/AdminConsolePage.css";
 import ACBlockListItem from "./ACBlockListItem";
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL || "/api";
 
 function ACReviewBlockPending() {
 	// 1... Fetch Pending listings

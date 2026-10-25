@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import "./SubmitProduct.css";
 import { Container, Row, Col } from "react-bootstrap";
@@ -11,21 +11,16 @@ import CalenderIcon from "../assets/calenderIcon.svg";
 import LocationIcon from "../assets/locationIcon.svg";
 import DescriptionIcon from "../assets/descriptionIcon.svg";
 
-import { uploadImage } from "../cloudinary";
+import { apiPut } from "../client";
 
-// Google Analytics
-import { trackEvent } from "../analytics";
+import { uploadImage } from "../cloudinary";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 
-const API_URL = import.meta.env.VITE_API_URL;
-
-// TEMP: hardcoded seller until i get around to auth
-const TEMP_SELLER_ID = "6a031ed938a375e22177a08c";
-
-export default function SubmitProduct() {
+export default function EditProduct() {
 	const navigate = useNavigate();
+	const { id } = useParams();
 
 	const [form, setForm] = useState({
 		productName: "",
@@ -37,11 +32,32 @@ export default function SubmitProduct() {
 		description: "",
 		shippingOptions: [],
 		authenticityAgreed: false,
+		mainImage: "",
 	});
 
 	const [imageFile, setImageFile] = useState(null);
 	const [submitting, setSubmitting] = useState(false);
 	const [error, setError] = useState(null);
+
+	useEffect(() => {
+		fetch(`${import.meta.env.VITE_API_URL || "/api"}/listings/${id}`)
+			.then((res) => res.json())
+			.then((data) => {
+				setForm({
+					productName: data.productName ?? "",
+					category: data.category ?? "",
+					price: data.price ?? "",
+					era: data.era ?? "",
+					condition: data.condition ?? "",
+					location: data.location ?? "",
+					description: data.description ?? "",
+					shippingOptions: data.shippingOptions ?? [],
+					authenticityAgreed: true,
+					mainImage: data.mainImage ?? "",
+				});
+			})
+			.catch((err) => setError(err.message));
+	}, [id]);
 
 	const handleChange = (e) => {
 		setForm({ ...form, [e.target.name]: e.target.value });
@@ -73,62 +89,27 @@ export default function SubmitProduct() {
 		e.preventDefault();
 		setError(null);
 
-		if (!imageFile) {
-			setError("Please upload a product photo");
-			return;
-		}
-		if (!form.authenticityAgreed) {
-			setError("You must agree to the authenticity policy");
-			return;
-		}
-
 		setSubmitting(true);
 		try {
-			// Step 1: Get the JWT passport
-			const token = localStorage.getItem("token");
-			if (!token) {
-				throw new Error("Authentication error: Please log in again.");
+			let imageUrl = form.mainImage; // keep the existing one by default
+
+			if (imageFile) {
+				imageUrl = await uploadImage(imageFile); // only re-upload if user picked a new file
 			}
 
-			// Step 2: Get everything into a FormData object (This converts the image into a binary stream)
-			const formDataPayload = new FormData();
-			formDataPayload.append("productName", form.productName);
-			formDataPayload.append("description", form.description);
-			formDataPayload.append("price", form.price);
-			formDataPayload.append("condition", form.condition);
-			formDataPayload.append("era", form.era);
-			formDataPayload.append("category", form.category);
-			formDataPayload.append("location", form.location);
-
-			// Append each shipping option
-			form.shippingOptions.forEach((opt) => {
-				formDataPayload.append("shippingOptions", opt);
+			await apiPut(`/listings/${id}`, {
+				productName: form.productName,
+				description: form.description,
+				price: Number(form.price),
+				condition: form.condition,
+				era: form.era,
+				category: form.category,
+				location: form.location,
+				shippingOptions: form.shippingOptions,
+				mainImage: imageUrl,
 			});
 
-			// IMPORTANTTT: This name 'image' must perfectly match upload.single('image') in the backend route
-			// because multer looks for that key to extract the file from the request
-			formDataPayload.append("image", imageFile);
-
-			// Step 3: Send the package at your backend pipeline
-			const res = await fetch(`${API_URL}/listings`, {
-				method: "POST",
-				headers: {
-					// Present the token to the backend for verification and authentication
-					Authorization: `Bearer ${token}`,
-				},
-				body: formDataPayload,
-			});
-
-			if (!res.ok) {
-				const errData = await res.json();
-				throw new Error(errData.error || "Submission failed");
-			}
-			trackEvent("submit_listing", {
-				currency: "ZAR",
-				value: Number(form.price),
-				item_category: form.category,
-				item_condition: form.condition,
-			});
+			navigate(`/product/${id}`);
 		} catch (err) {
 			setError(err.message);
 		} finally {
@@ -138,24 +119,23 @@ export default function SubmitProduct() {
 
 	return (
 		<div className="submit-page-wrapper">
-			{/* Top Admin Alert Notice Strip Thingy*/}
 			<div className="admin-verification-banner">
 				{/* <span className="warning-icon">⚠️</span> */}
 				<span className="warning-icon">
+					{" "}
 					<FontAwesomeIcon icon={faTriangleExclamation} />
 				</span>
 				<p>
-					<strong>ADMIN VERIFICATION REQUIRED</strong>
+					<strong>EDITING YOUR LISTING</strong>
 					<br />
-					All listings are reviewed by our team to ensure authenticity. You'll
-					be notified once your item is approved (usually within 24 hours).
+					Changes will be Directly applied to your product
 				</p>
 			</div>
 
 			<div className="submit-product-container">
 				<div className="submit-product-header">
-					<h1>list your vintage tech</h1>
-					<p>Share your retro electronics with collectors</p>
+					<h1>edit your listing</h1>
+					<p>Update your retro tech details</p>
 				</div>
 
 				<form className="submit-product-form" onSubmit={handleSubmit}>
@@ -172,7 +152,9 @@ export default function SubmitProduct() {
 								<p className="upload-text-main">
 									{imageFile
 										? imageFile.name
-										: "DRAG AND DROP YOUR IMAGES HERE"}
+										: form.mainImage
+											? "Current image loaded — upload to replace"
+											: "DRAG AND DROP YOUR IMAGES HERE"}
 								</p>
 								<p className="upload-text-divider">OR</p>
 								<button
@@ -202,7 +184,6 @@ export default function SubmitProduct() {
 					<Container fluid className="form-section-card classification-card-bg">
 						<div className="section-inner-padding">
 							<label className="section-main-label">Item Classification</label>
-
 							<div className="product-details-form">
 								<div className="input-group-block mb-4">
 									<label htmlFor="product-title" className="field-label">
@@ -223,7 +204,6 @@ export default function SubmitProduct() {
 										required
 									/>
 								</div>
-
 								<Row className="g-4 mb-4">
 									<Col md={6} className="d-flex flex-column gap-2">
 										<label htmlFor="product-category" className="field-label">
@@ -261,7 +241,6 @@ export default function SubmitProduct() {
 										/>
 									</Col>
 								</Row>
-
 								<Row className="g-4">
 									<Col md={6} className="d-flex flex-column gap-2">
 										<label htmlFor="era-decade" className="field-label">
@@ -312,7 +291,6 @@ export default function SubmitProduct() {
 					<Container fluid className="form-section-card info-card-bg">
 						<div className="section-inner-padding d-flex flex-column gap-4">
 							<label className="section-main-label m-0">Item Information</label>
-
 							<div className="input-group-block">
 								<label htmlFor="product-location" className="field-label">
 									<img
@@ -370,12 +348,12 @@ export default function SubmitProduct() {
 							</div>
 						</div>
 					</Container>
+					{error && <p className="error-display-msg">{error}</p>}
 
 					{/* === SHIPPING OPTIONS SECTION === */}
 					<Container fluid className="form-section-card shipping-card-bg">
 						<div className="section-inner-padding d-flex flex-column gap-3">
 							<label className="section-main-label m-0">Shipping Options</label>
-
 							<ul className="shipping-options-list">
 								<li>
 									<input
@@ -412,7 +390,6 @@ export default function SubmitProduct() {
 									</label>
 								</li>
 							</ul>
-
 							<div className="terms-checkbox-strip">
 								<input
 									type="checkbox"
@@ -432,21 +409,18 @@ export default function SubmitProduct() {
 						</div>
 					</Container>
 
-					{error && <p className="error-display-msg">{error}</p>}
-
-					{/* === ACTION CONTROLS FOOTER === */}
 					<div className="submit-action-row">
 						<button
 							type="button"
 							className="action-btn cancel-btn"
-							onClick={() => navigate("/")}>
+							onClick={() => navigate(`/product/${id}`)}>
 							Cancel
 						</button>
 						<button
 							type="submit"
 							className="action-btn process-btn"
 							disabled={submitting}>
-							{submitting ? "Submitting..." : "Submit For Review"}
+							{submitting ? "Saving..." : "Save Changes"}
 						</button>
 					</div>
 				</form>

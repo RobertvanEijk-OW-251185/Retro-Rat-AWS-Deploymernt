@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import TunePassword from "../components/TunePassword";
+import TunePassword from "./TunePassword";
 import { useToast } from "./ToastContext";
 import { apiPost } from "../client";
 

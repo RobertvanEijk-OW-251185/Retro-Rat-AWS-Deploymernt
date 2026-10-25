@@ -10,7 +10,7 @@ import { apiGet } from "../client";
 // Google Analytics
 import { toAnalyticsItem, trackEvent } from "../analytics";
 
-import "../pages/SingleProductView.css";
+import "./SingleProductView.css";
 import "./SingleProductView.css";
 import "../components/SingleProductImage.css";
 import "../components/SingleProductInformation.css";

@@ -6,7 +6,7 @@ import Img1 from "../assets/product-img.png";
 import Img2 from "../assets/Image (Classic Game Console Controller).png";
 import Img3 from "../assets/Image (Sony Walkman Cassette Player).png";
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL || "/api";
 
 import LogoutBtnComp from "../components/LogOutBtnComponent";
 

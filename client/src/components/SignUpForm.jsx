@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import TunePassword from "../components/TunePassword";
+import TunePassword from "./TunePassword";
 
 import LocationIcon from "../assets/locationIcon.svg";
 import { useToast } from "./ToastContext";

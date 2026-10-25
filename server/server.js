@@ -4,24 +4,26 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const path = require("path");
 
-dotenv.config();
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 const app = express();
 const PORT = process.env.PORT || 5001;
 app.use(cors());
 app.use(express.json());
 
+app.get("/health", (_req, res) => {
+	const databaseConnected = mongoose.connection.readyState === 1;
+	res
+		.status(databaseConnected ? 200 : 503)
+		.json({ status: databaseConnected ? "ok" : "unavailable" });
+});
+
 const seoRoutes = require("./routes/seoRoutes");
 app.use("/", seoRoutes);
 
 if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "../frontend/dist")));
+	app.use(express.static(path.join(__dirname, "../client/dist")));
 }
-
-mongoose
-	.connect(process.env.MONGO_URI)
-	.then(() => console.log("MongoDB connected"))
-	.catch((err) => console.log(err));
 
 // User routes
 const userRoutes = require("./routes/userRoutes");
@@ -43,7 +45,7 @@ app.use("/api/saved", savedRoutes);
 
 if (process.env.NODE_ENV === "production") {
 	app.get("/{*splat}", (req, res) => {
-		res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+		res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 	});
 } else {
 	app.get("/", (req, res) => {
@@ -51,6 +53,23 @@ if (process.env.NODE_ENV === "production") {
 	});
 }
 
-app.listen(PORT, () => {
-	console.log(`Server is running on port ${PORT}`);
+async function startServer() {
+	if (!process.env.MONGO_URI) {
+		throw new Error("MONGO_URI must be configured");
+	}
+	if (!process.env.JWT_SECRET) {
+		throw new Error("JWT_SECRET must be configured");
+	}
+
+	await mongoose.connect(process.env.MONGO_URI);
+	console.log("MongoDB connected");
+
+	app.listen(PORT, () => {
+		console.log(`Server is running on port ${PORT}`);
+	});
+}
+
+startServer().catch((error) => {
+	console.error("Failed to start server:", error);
+	process.exit(1);
 });
